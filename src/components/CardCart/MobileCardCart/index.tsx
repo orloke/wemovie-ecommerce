@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Quantity } from "../Quantity";
 import { SubTotal } from "../SubTotal";
 import { Remove } from "../Remove";
+import { placeholderImage } from "@/lib/placeholderImage";
 
 interface MobileCardCartProps {
   movie: CartMovie;
@@ -18,7 +19,7 @@ export const MobileCardCart = ({ movie }: MobileCardCartProps) => {
   return (
     <div className="flex md:hidden w-full gap-4">
       <div className="relative h-[82px] min-w-[64px]">
-        <Image src={movie.image} alt={movie.title} fill priority />
+        <Image src={movie.image} alt={movie.title} fill priority placeholder={placeholderImage("100%", "100%")} />
       </div>
       <div className="flex w-full justify-between">
         <div className="flex flex-col gap-4 w-full max-w-full justify-between text-sm font-bold">

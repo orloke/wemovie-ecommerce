@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SuccessPage from "../../../public/SuccessPage.svg";
 import { ButtonToHome } from "@/components/ButtonToHome";
+import { placeholderImage } from "@/lib/placeholderImage";
 
 export default function Page() {
   return (
@@ -8,7 +9,7 @@ export default function Page() {
       <div className="bg-white w-full flex flex-col items-center justify-center gap-4 rounded-sm text-center">
         <h1 className="text-center text-xl font-bold text-primary-700">Compra realizada com sucesso!</h1>
         <div className="relative h-[264px] w-[179px]">
-          <Image priority src={SuccessPage.src} alt="Empty" fill className="" />
+          <Image priority src={SuccessPage.src} alt="Empty" fill className="" placeholder={placeholderImage("100%", "100%")} />
         </div>
         <ButtonToHome />
       </div>
