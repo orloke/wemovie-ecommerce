@@ -7,8 +7,10 @@ interface LoaderProps extends ComponentProps<"div"> {}
 
 export const Loader = ({ ...props }: LoaderProps) => {
   return (
-    <div {...props} className={cn("relative w-[83px] h-[83px]", props.className)}>
-      <Image src={Loading.src} alt="Loading" fill className="animate-spin" />
+    <div {...props} className={cn("flex h-screen w-screen items-center justify-center", props.className)}>
+      <div className="relative h-[83px] w-[83px]">
+        <Image src={Loading.src} alt="Loading" fill className="animate-spin" />
+      </div>
     </div>
   );
 };

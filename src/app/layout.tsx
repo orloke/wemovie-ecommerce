@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Suspense } from "react";
+import { Loader } from "@/components/Loader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,10 +27,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("bg-background font-sans")}>
-        <CartProvider>
-          <Header />
-          <div className="h-screen min-h-screen pt-[88px]">{children}</div>
-        </CartProvider>
+        <Suspense fallback={<Loader />}>
+          <CartProvider>
+            <Header />
+            <div className="h-screen min-h-screen pt-[88px]">{children}</div>
+          </CartProvider>
+        </Suspense>
       </body>
     </html>
   );
